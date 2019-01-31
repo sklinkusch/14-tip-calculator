@@ -47,7 +47,11 @@ section#form {
   padding: 5%;
   margin: 0 auto;
 }
-label {
+input,
+select {
   display: inline-block;
-  width: 30%;
+  width: 45%;
+  padding: 10px;
+  font-size: 14pt;
+  margin-bottom: 15px;
 }
