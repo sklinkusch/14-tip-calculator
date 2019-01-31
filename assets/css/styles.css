@@ -42,7 +42,7 @@ main {
   background-size: cover;
   height: 75vw;
 }
-section#form {
+section {
   background-color: rgba(255, 255, 255, 0.6);
   width: 85%;
   padding: 5%;
@@ -61,14 +61,30 @@ select {
 select {
   color: #222;
 }
-button#calculate {
+button {
   padding: 5px;
   background-color: green;
   border: 2px solid yellowgreen;
+  font-size: 20pt;
 }
 #err-money,
 #err-rate {
   color: red;
   font-weight: bold;
   font-size: 20pt;
+}
+.first,
+.second {
+  font-size: 18pt;
+}
+.first {
+  width: 65%;
+  display: inline-block;
+}
+.second {
+  width: 20%;
+  display: inline-block;
+}
+p {
+  margin-bottom: 10px;
 }
