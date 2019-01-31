@@ -30,24 +30,51 @@ function getRate() {
   }
 }
 // Function to calculate the tip
-const calculateTip = () => (getAmount() * getRate()).toFixed(2);
+const calculateTip = (amount, rate) => (amount * rate).toFixed(2);
 // Function to calculate the totalAmount
-const totalAmount = () =>
-  (Number(getAmount()) + Number(calculateTip())).toFixed(2);
+const totalAmount = (amount, tipvalue) => {
+  const totalAmount = (Number(amount) + Number(tipvalue)).toFixed(2);
+  return totalAmount;
+};
 // Function assigned to the "Calculate" button
 function showResult() {
-  document.querySelector("#res-amount").innerHTML = getAmount();
-  document.querySelector("#res-tiprate").innerHTML = `${100 * getRate()} %`;
-  document.querySelector("#res-tip").innerHTML = calculateTip();
-  document.querySelector("#res-total").innerHTML = totalAmount();
+  const amount = getAmount();
+  document.querySelector("#res-amount").innerHTML = amount;
+  const tiprate = getRate();
+  document.querySelector("#res-tiprate").innerHTML = `${100 * tiprate} %`;
+  const tipvalue = calculateTip(amount, tiprate);
+  document.querySelector("#res-tip").innerHTML = tipvalue;
+  document.querySelector("#res-total").innerHTML = totalAmount(
+    amount,
+    tipvalue
+  );
 }
 // button events
 function LoadButtonEvents() {
-  document.querySelector("#calculate").addEventListener("click", onclick => {
+  document.querySelector("#calculate").addEventListener("click", () => {
     showResult();
+    resultStyles();
   });
+  document.querySelector("#new-tip").addEventListener("click", () => {
+    firstStyles();
+    clearValues();
+  });
+}
+// First Styles
+function firstStyles() {
+  document.getElementById("form").style.display = "block";
+  document.getElementById("result").style.display = "none";
+}
+function clearValues() {
+  document.getElementById("money").value = "";
+  document.getElementById("rate").value = "select-head";
+}
+function resultStyles() {
+  document.getElementById("form").style.display = "none";
+  document.getElementById("result").style.display = "block";
 }
 function init() {
   LoadButtonEvents();
+  firstStyles();
 }
 init();

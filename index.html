@@ -19,7 +19,9 @@
         <span id="err-money">&nbsp;</span> <br />
         <label for="rate">Quality of service:</label>
         <select name="rate" id="rate">
-          <option id="selecthead">Choose a quality of service</option>
+          <option id="selecthead" value="select-head"
+            >Choose a quality of service</option
+          >
           <option value="excellent">Excellent (30%)</option>
           <option value="verygood">Very good (20%)</option>
           <option value="good">Good (15%)</option>
@@ -31,14 +33,14 @@
         <button id="calculate" value="Calculate">Calculate</button>
       </section>
       <section id="result">
-        <p>The <b>Amount</b> is <span id="res-amount">&nbsp;</span>€.</p>
+        <p>The <b>Amount</b> is <span id="res-amount">&nbsp;</span> €.</p>
         <p>
           The <b>Tip</b> (<span id="res-tiprate">&nbsp;</span>) is
           <span id="res-tip">&nbsp;</span> €.
         </p>
         <p>The <b>Total</b> is <span id="res-total">&nbsp;</span> €.</p>
+        <button id="new-tip" value="New Tip">New Tip</button>
       </section>
-      <button id="new-tip" value="New Tip">New Tip</button>
     </main>
     <script src="./assets/js/main.js"></script>
   </body>
