@@ -23,6 +23,9 @@
     /* Safari, Android, iOS */
       url("../fonts/righteous-v6-latin-regular.svg#Righteous") format("svg"); /* Legacy iOS */
 }
+body {
+  background: #444;
+}
 main {
   background-image: url("../images/jason-leung-537357-unsplash.jpg");
   background-size: cover;
