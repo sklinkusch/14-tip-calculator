@@ -98,3 +98,12 @@ p {
     width: 90%;
   }
 }
+@media all and (max-width: 500px) {
+  main {
+    background-repeat: repeat;
+  }
+  section {
+    position: relative;
+    top: 1px;
+  }
+}
