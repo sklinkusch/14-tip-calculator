@@ -32,6 +32,10 @@ header {
   background-color: antiquewhite;
   text-align: center;
 }
+h1 {
+  font-size: 36pt;
+  font-family: "Righteous";
+}
 main {
   background-image: url("../images/jason-leung-537357-unsplash.jpg");
   background-size: cover;
