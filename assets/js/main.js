@@ -1,6 +1,6 @@
 // Get Money
 function getAmount() {
-  const amount = Number(document.getElementById("money").value).toFixed(2);
+  const amount = document.getElementById("money").value;
   return amount;
 }
 // Get Rate
@@ -26,7 +26,7 @@ function getRate() {
       return 0;
       break;
     default:
-      throw new Error("You need to choose a quality of service");
+      return -2;
   }
 }
 // Function to calculate the tip
@@ -40,14 +40,32 @@ const totalAmount = (amount, tipvalue) => {
 function showResult() {
   const amount = getAmount();
   document.querySelector("#res-amount").innerHTML = amount;
-  const tiprate = getRate();
-  document.querySelector("#res-tiprate").innerHTML = `${100 * tiprate} %`;
-  const tipvalue = calculateTip(amount, tiprate);
-  document.querySelector("#res-tip").innerHTML = tipvalue;
-  document.querySelector("#res-total").innerHTML = totalAmount(
-    amount,
-    tipvalue
-  );
+  if (!/^[0-9.]*$/.test(amount)) {
+    try {
+      throw Error("Amount must be a number");
+    } catch (e) {
+      document.getElementById("err-money").innerHTML = e.message;
+    }
+  } else {
+    document.getElementById("err-money").innerHTML = "";
+    const tiprate = getRate();
+    if (tiprate < 0) {
+      try {
+        throw new Error("You have to choose an option!");
+      } catch (e) {
+        document.getElementById("err-rate").innerHTML = e.message;
+      }
+    } else {
+      document.getElementById("err-rate").innerHTML = "";
+      document.querySelector("#res-tiprate").innerHTML = `${100 * tiprate} %`;
+      const tipvalue = calculateTip(amount, tiprate);
+      document.querySelector("#res-tip").innerHTML = tipvalue;
+      document.querySelector("#res-total").innerHTML = totalAmount(
+        amount,
+        tipvalue
+      );
+    }
+  }
 }
 // button events
 function LoadButtonEvents() {
@@ -68,10 +86,17 @@ function firstStyles() {
 function clearValues() {
   document.getElementById("money").value = "";
   document.getElementById("rate").value = "select-head";
+  document.getElementById("err-money").innerHTML = "";
+  document.getElementById("err-rate").innerHTML = "";
 }
 function resultStyles() {
-  document.getElementById("form").style.display = "none";
-  document.getElementById("result").style.display = "block";
+  if (
+    document.getElementById("err-money").innerHTML === "" &&
+    document.getElementById("err-rate").innerHTML === ""
+  ) {
+    document.getElementById("form").style.display = "none";
+    document.getElementById("result").style.display = "block";
+  }
 }
 function init() {
   LoadButtonEvents();
