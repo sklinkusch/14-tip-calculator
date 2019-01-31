@@ -66,3 +66,9 @@ button#calculate {
   background-color: green;
   border: 2px solid yellowgreen;
 }
+#err-money,
+#err-rate {
+  color: red;
+  font-weight: bold;
+  font-size: 20pt;
+}
