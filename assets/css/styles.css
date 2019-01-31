@@ -58,3 +58,11 @@ select {
   font-size: 14pt;
   margin-bottom: 15px;
 }
+select {
+  color: #222;
+}
+button#calculate {
+  padding: 5px;
+  background-color: green;
+  border: 2px solid yellowgreen;
+}
