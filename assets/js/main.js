@@ -39,14 +39,14 @@ const totalAmount = (amount, tipvalue) => {
 // Function assigned to the "Calculate" button
 function showResult() {
   const amount = getAmount();
-  document.querySelector("#res-amount").innerHTML = amount;
-  if (!/^[0-9.]*$/.test(amount)) {
+  if (!/^([0-9]+.?[0-9]*)*$/.test(amount) || amount === "") {
     try {
       throw Error("Amount must be a number");
     } catch (e) {
       document.getElementById("err-money").innerHTML = e.message;
     }
   } else {
+    document.querySelector("#res-amount").innerHTML = Number(amount).toFixed(2);
     document.getElementById("err-money").innerHTML = "";
     const tiprate = getRate();
     if (tiprate < 0) {
