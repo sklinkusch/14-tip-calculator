@@ -24,17 +24,18 @@
       url("../fonts/righteous-v6-latin-regular.svg#Righteous") format("svg"); /* Legacy iOS */
 }
 body {
-  background: #444;
+  background: #111;
 }
 header {
   width: 95%;
   margin: 0 auto;
-  background-color: antiquewhite;
+  background-color: black;
   text-align: center;
 }
 h1 {
   font-size: 36pt;
   font-family: "Righteous";
+  color: white;
 }
 main {
   background-image: url("../images/jason-leung-537357-unsplash.jpg");
