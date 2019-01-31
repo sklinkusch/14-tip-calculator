@@ -26,6 +26,12 @@
 body {
   background: #444;
 }
+header {
+  width: 95%;
+  margin: 0 auto;
+  background-color: antiquewhite;
+  text-align: center;
+}
 main {
   background-image: url("../images/jason-leung-537357-unsplash.jpg");
   background-size: cover;
