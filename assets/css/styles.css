@@ -88,3 +88,13 @@ button {
 p {
   margin-bottom: 10px;
 }
+@media all and (max-width: 800pt) {
+  p,
+  #err-money,
+  #err-rate,
+  input,
+  select {
+    display: block;
+    width: 90%;
+  }
+}
