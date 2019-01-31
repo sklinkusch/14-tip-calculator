@@ -30,4 +30,4 @@ function getRate() {
   }
 }
 // Function to calculate the tip
-const calculateTip = (money, rate) => (money * rate).toFixed(2);
+const calculateTip = (money, rate) => (getAmount() * getRate()).toFixed(2);
