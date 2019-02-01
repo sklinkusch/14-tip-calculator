@@ -23,7 +23,7 @@ function getRate() {
       return 0.05;
       break;
     case "verybad":
-      return -0.5;
+      return 0;
       break;
     case "select-head":
       return -2;
@@ -50,16 +50,13 @@ function showResult() {
     document.querySelector("#res-amount").innerHTML = Number(amount).toFixed(2);
     document.getElementById("err-money").innerHTML = "";
     let tiprate = getRate();
-    if (tiprate < -1) {
+    if (tiprate < 0) {
       try {
         throw new Error("You have to choose an option!");
       } catch (e) {
         document.getElementById("err-rate").innerHTML = e.message;
       }
     } else {
-      if (tiprate == -0.5) {
-        tiprate = 0;
-      }
       document.getElementById("err-rate").innerHTML = "";
       document.querySelector("#res-tiprate").innerHTML = `${100 * tiprate} %`;
       const tipvalue = calculateTip(amount, tiprate);
