@@ -84,6 +84,7 @@ button {
 .second {
   width: 20%;
   display: inline-block;
+  text-align: right;
 }
 p {
   margin-bottom: 10px;
