@@ -22,11 +22,12 @@ function getRate() {
     case "bad":
       return 0.05;
       break;
-    case "very bad":
+    case "verybad":
       return 0;
       break;
-    default:
+    case "select-head":
       return -2;
+      break;
   }
 }
 // Function to calculate the tip
@@ -48,7 +49,7 @@ function showResult() {
   } else {
     document.querySelector("#res-amount").innerHTML = Number(amount).toFixed(2);
     document.getElementById("err-money").innerHTML = "";
-    const tiprate = getRate();
+    let tiprate = getRate();
     if (tiprate < 0) {
       try {
         throw new Error("You have to choose an option!");
