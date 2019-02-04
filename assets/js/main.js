@@ -39,7 +39,7 @@ const totalAmount = (amount, tipvalue) => {
 // Function assigned to the "Calculate" button
 function showResult() {
   const amount = getAmount();
-  if (!/^([0-9]+.?[0-9]*)*$/.test(amount) || amount === "") {
+  if (!/^([0-9]+.?[0-9]*)$/.test(amount) || amount === "") {
     try {
       throw Error("Amount must be a number");
     } catch (e) {
